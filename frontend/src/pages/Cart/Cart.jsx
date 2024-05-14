@@ -1,4 +1,4 @@
-import{ useContext } from "react";
+import{ useContext, useState } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,10 @@ const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
   // console.log('cartItems cart', cartItems);
   const navgitate = useNavigate()
+
+  const [emptyCart, setEmptyCart] = useState(cartItems)
+  console.log('emptyCart state' ,emptyCart);
+  
   return (
     <div className="cart">
       <div className="cart-items">
@@ -39,8 +43,12 @@ const Cart = () => {
                 <hr />
               </div>
             );
-          }
+          } 
+          
         })}
+
+        
+
       </div>
 
       <div className="cart-bottom">
