@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import { connectDB } from './config/db.js'
 
 
 // app config
@@ -9,6 +10,9 @@ const port = 4000
 // middleware
 app.use(express.json()) 
 app.use(cors()) // dùng để truy cập vào backend khi ở bất kì chỗ nào của frontend
+
+// database connection
+connectDB()
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/', (req, res) => {
